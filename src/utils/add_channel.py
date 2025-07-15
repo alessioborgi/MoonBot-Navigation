@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-# Load your image (as color).
-img = cv2.imread('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/occupancy_grid.png') 
+# Load image.
+img = cv2.imread('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/3_channels/occupancy_grid_with_crater_small.png') 
 if img is None:
     raise ValueError("Image not found!")
 
@@ -18,6 +18,6 @@ else:
     print("Image already has an alpha channel!")
     img_bgra = img 
 
-# Save the new 4-channel image
-cv2.imwrite('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/occupancy_grid_4channels.png', img_bgra)
+# Save the new 4-channel image.
+cv2.imwrite('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/4_channels/occupancy_grid_with_crater_small_4channels.png', img_bgra)
 print("Saved image with alpha channel.")
