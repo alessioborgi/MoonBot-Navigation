@@ -19,14 +19,17 @@ contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPL
 occupancy_grid = np.ones_like(gray) * 255  
 cv2.drawContours(occupancy_grid, contours, -1, (0), thickness=cv2.FILLED)  
 
-# 5) Overlay grid for visualization. 
+# 5) Apply median filter to remove Salt and Pepper noise.
+filtered = cv2.medianBlur(img, 5)  # 5 is kernel size; use 3, 5, or 7
+
+# 6) Overlay grid for visualization. 
 cell_size = 40  
 grid_img = cv2.cvtColor(occupancy_grid, cv2.COLOR_GRAY2BGR)
 for x in range(0, occupancy_grid.shape[1], cell_size):
     cv2.line(grid_img, (x, 0), (x, occupancy_grid.shape[0]), (0, 255, 0), 1)
 for y in range(0, occupancy_grid.shape[0], cell_size):
     cv2.line(grid_img, (0, y), (occupancy_grid.shape[1], y), (0, 255, 0), 1)
-cv2.imwrite('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/occupancy_grid_with_gridlines1.png', grid_img)
+cv2.imwrite('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/occupancy_grid_with_gridlines.png', grid_img)
 
-# 6) Export the occupancy grid as PNG.
-cv2.imwrite('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/occupancy_grid1.png', occupancy_grid)
+# 7) Export the occupancy grid as PNG.
+cv2.imwrite('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/occupancy_grid.png', occupancy_grid)
