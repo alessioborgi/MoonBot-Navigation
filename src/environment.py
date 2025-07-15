@@ -26,16 +26,7 @@ for x in range(0, occupancy_grid.shape[1], cell_size):
     cv2.line(grid_img, (x, 0), (x, occupancy_grid.shape[0]), (0, 255, 0), 1)
 for y in range(0, occupancy_grid.shape[0], cell_size):
     cv2.line(grid_img, (0, y), (occupancy_grid.shape[1], y), (0, 255, 0), 1)
-cv2.imwrite('occupancy_grid_with_gridlines.png', grid_img)
+cv2.imwrite('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/occupancy_grid_with_gridlines.png', grid_img)
 
 # 6) Export the occupancy grid as PNG.
-cv2.imwrite('occupancy_grid.png', occupancy_grid)
-
-# # 7) (Optional) Export as CSV for inspection
-# csv_grid = (occupancy_grid < 128).astype(int)  # 1=obstacle, 0=free
-# with open('occupancy_grid.csv', 'w', newline='') as csvfile:
-#     writer = csv.writer(csvfile)
-#     for row in csv_grid:
-#         writer.writerow(row)
-
-# print("Done! Files saved: occupancy_grid.png, occupancy_grid_with_gridlines.png, occupancy_grid.csv")
+cv2.imwrite('/Users/alessioborgi/Documents/GitHub/Tohoku_TESP/img/occupancy_grid.png', occupancy_grid)
