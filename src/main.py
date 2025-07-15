@@ -4,13 +4,28 @@ from pybricks.ev3devices import Motor  # Import the Motor class
 from pybricks.parameters import Port, Stop
 from pybricks.tools import wait
 
+class r_Motor:
+    def __init__(self, port, is_fw, is_L):
+        self.motor = Motor(port)
+        self.is_fw = is_fw
+        self.is_L = is_L
+
+    def run(self, speed):
+        if self.is_fw:
+            self.motor.run(-speed)
+        else:
+            self.motor.run(speed)
+
+    def stop(self, stop_type):
+        self.motor.stop(stop_type)
+
 class Robot:
 
     def __init__(self):
-        motor_fw_L = Motor(Port.A)  
-        motor_fw_R = Motor(Port.B)   
-        motor_bw_L = Motor(Port.C)  
-        motor_bw_R = Motor(Port.D)   
+        motor_fw_L = r_Motor(Port.D, True, True)
+        motor_fw_R = r_Motor(Port.A, True, False)  # Forward right motor 
+        motor_bw_L = r_Motor(Port.C, False, True)
+        motor_bw_R = r_Motor(Port.B, False, False)   
         self.motors = [motor_fw_L, motor_fw_R, motor_bw_L, motor_bw_R]
 
     def run_motors(self, speed):
