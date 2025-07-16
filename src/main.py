@@ -3,47 +3,77 @@
 from pybricks.ev3devices import Motor  # Import the Motor class
 from pybricks.parameters import Port, Stop
 from pybricks.tools import wait
+import math
 
 class r_Motor:
-    def __init__(self, port, is_fw, is_L):
+    def __init__(self, port, invert):
         self.motor = Motor(port)
-        self.is_fw = is_fw
-        self.is_L = is_L
+        # Some wheel orientations need inversion
+        self.invert = -1 if invert else 1
 
     def run(self, speed):
-        if self.is_fw:
-            self.motor.run(-speed)
-        else:
-            self.motor.run(speed)
+        # speed in degrees/sec
+        self.motor.run(self.invert * speed)
 
-    def stop(self, stop_type):
+    def stop(self, stop_type=Stop.BRAKE):
         self.motor.stop(stop_type)
 
+
 class Robot:
+    def __init__(self, wheel_radius=2, length=25, width=22):
+        # wheel_radius, length between front-back, width between left-right, all in cm
+        self.r = wheel_radius
+        self.l = length
+        self.w = width
+        # Create motors: fl, fr, bl, br; invert flags based on orientation
+        self.motors = [
+            r_Motor(Port.D, invert=True),  # Front Left
+            r_Motor(Port.A, invert=True),   # Front Right
+            r_Motor(Port.C, invert=False),  # Back Left
+            r_Motor(Port.B, invert=False)    # Back Right
+        ]
 
-    def __init__(self):
-        motor_fw_L = r_Motor(Port.D, True, True)
-        motor_fw_R = r_Motor(Port.A, True, False)  # Forward right motor 
-        motor_bw_L = r_Motor(Port.C, False, True)
-        motor_bw_R = r_Motor(Port.B, False, False)   
-        self.motors = [motor_fw_L, motor_fw_R, motor_bw_L, motor_bw_R]
+    def move(self, v, w=0):
+        """
+        v: translational speed magnitude in cm/s (0..100)
+        w: rotational speed in rad/s (positive = CCW)
+        """
+        # kinematic factor
+        R = self.r
+        # distance factor
+        D = math.sqrt(self.l**2 + self.w**2)/2 # half diagonal of the robot
+        
+        # wheel angular velocities in rad/s
+        omegas = [
+        # fl, fr, bl, br
+            (v-w*D)/R,  # Front Left
+            (v+w*D)/R,  # Front Right
+            (v-w*D)/R,  # Back Left
+            (v+w*D)/R   # Back Right
+        ]
+        speed = [math.degrees(omega) for omega in omegas]  # convert to degrees/sec
 
-    def run_motors(self, speed):
-        for motor in self.motors:
-            motor.run(speed)
-
-    def stop_motors(self):
-        for motor in self.motors:
-            motor.stop(Stop.BRAKE)
-
+        # convert to deg/s and run
+        for m, s in zip(self.motors, speed):
+            m.run(s)
+    
+    def stop(self):
+        for m in self.motors:
+            m.stop()
 
 if __name__ == "__main__":
-    robot = Robot()  # Create an instance of the Robot class
-    robot.run_motors(360)  # Run all motors at 360 degrees per second
-    wait(5000)  # Let the motors run for approximately 5 seconds
-    robot.stop_motors()  # Stop all motors
-    wait(2000)  # Wait for 2 seconds before ending the program
-    robot.run_motors(-360)  # Run all motors in reverse at 360 degrees per second
-    wait(5000)  # Let the motors run in reverse for approximately 5 seconds
-    robot.stop_motors()  # Stop all motors again
-    wait(2000)  # Wait for 2 seconds before ending the program
+    robot = Robot()
+
+    v = 0
+    w = math.radians(45)  # 45 degrees per second
+    i = 0
+    while True:
+        robot.move(v, w)
+        wait(100)
+        # angle += math.radians(5)
+        i += 1
+        if i % 50 == 0:  # every 5 seconds
+            robot.stop(Stop.COAST)  # stop the robot
+            break
+
+    # To stop: robot.stop()
