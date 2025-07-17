@@ -26,12 +26,15 @@ class Robot:
         self.l = length
         self.w = width
         # Create motors: fl, fr, bl, br; invert flags based on orientation
-        self.motors = [
+        """self.motors = [
             r_Motor(Port.D, invert=True),  # Front Left
             r_Motor(Port.A, invert=True),   # Front Right
-            r_Motor(Port.C, invert=False),  # Back Left
-            r_Motor(Port.B, invert=False)    # Back Right
-        ]
+            #r_Motor(Port.C, invert=False),  # Back Left
+            #r_Motor(Port.B, invert=False)    # Back Right
+        ]"""
+        self.leftMotor = r_Motor(Port.D, invert=True)
+        self.rightMotor = r_Motor(Port.A, invert=True)
+
 
     def move(self, v, w=0):
         """
@@ -56,6 +59,21 @@ class Robot:
         # convert to deg/s and run
         for m, s in zip(self.motors, speed):
             m.run(s)
+    """
+    def turn(self, speed, direction):
+        if direction == "left":
+            fl = -speed
+            fr = speed
+            
+        if direction == "right":
+            fl = speed
+            fr = -speed
+    def forward(self, speed):
+            fl = v
+            fr = v
+    """
+        
+        
     
     def stop(self):
         for m in self.motors:
