@@ -20,7 +20,7 @@ class r_Motor:
 
 
 class Robot:
-    def __init__(self, wheel_radius=2, length=25, width=22):
+    def __init__(self, wheel_radius=3, length=25, width=22):
         # wheel_radius, length between front-back, width between left-right, all in cm
         self.r = wheel_radius
         self.l = length
