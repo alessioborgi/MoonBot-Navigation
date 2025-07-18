@@ -30,12 +30,12 @@ class r_Motor:
         else:
             self.motor.run_angle(10, angle)
 
-    def run_target(self, target):
+    def run_target(self, target, speed=10):
         ''' This is the absolute angle. '''
         if DBG:
-            self.motor.run_target(10, target, wait=True)
+            self.motor.run_target(speed, target, wait=True)
         else:
-            self.motor.run_target(10, target)
+            self.motor.run_target(speed, target)
 
 
 class Robot:
@@ -47,15 +47,10 @@ class Robot:
         self.steer_angle_curr = 0
         self.steer_max_angle = 70  # Maximum steering angle in degrees
         # Create motors: fl, fr, bl, br; invert flags based on orientation
-        """self.motors = [
-            r_Motor(Port.D, invert=True),  # Front Left
-            r_Motor(Port.A, invert=True),   # Front Right
-            #r_Motor(Port.C, invert=False),  # Back Left
-            #r_Motor(Port.B, invert=False)    # Back Right
-        ]"""
         self.leftMotor = r_Motor(Port.A, invert=False)
         self.rightMotor = r_Motor(Port.D, invert=False)
         self.steerMotor = r_Motor(Port.B, invert=False)
+        # self.gripperMotor = r_Motor(Port.C, invert=False)
         self.angle = 0
 
 
@@ -77,6 +72,12 @@ class Robot:
         for m in [self.leftMotor, self.rightMotor, self.steerMotor]:
             m.stop()
 
+    # def open_gripper(self):
+    #     self.gripperMotor.run_target(-70, 30)
+
+    # def close_gripper(self):
+    #     self.gripperMotor.run_target(0, 20)
+
 
 if __name__ == "__main__":
 
@@ -84,20 +85,20 @@ if __name__ == "__main__":
 
     # Test Path
     robot = Robot()
-    robot.move(vel)
     robot.steer_left(50)
+    robot.move(vel)
     robot.steer(0)
     wait(1000)
     robot.move(vel)
     wait(3000)
     robot.move(vel)
-    robot.steer_left(vel)
-    wait(4000)
+    robot.steer_left(15)
+    robot.steer(0)
+    wait(3000)
+    robot.stop()        # Stop the robot
 
+    # robot.open_gripper()
+    # wait(1000)
+    # robot.close_gripper()
 
-
-    # robot.steer_right(50)
-
-    # robot.move(20)  # Move forward at 20 cm/s
-    # wait(200)        # Wait for 0.2 seconds
     robot.stop()        # Stop the robot
