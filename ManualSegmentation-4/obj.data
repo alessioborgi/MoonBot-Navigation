@@ -1,5 +1,0 @@
-classes = 4
-train = /Users/alessioborgi/Documents/GitHub/Tohoku_TESP/ManualSegmentation-4/train.txt
-valid = /Users/alessioborgi/Documents/GitHub/Tohoku_TESP/ManualSegmentation-4/test.txt
-names = /Users/alessioborgi/Documents/GitHub/Tohoku_TESP/ManualSegmentation-4/obj.names
-backup = backup/
