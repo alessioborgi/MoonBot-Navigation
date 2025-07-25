@@ -83,16 +83,16 @@ The final robot is the following:
 
 To enable autonomous navigation, we developed a computer vision and planning pipeline that converts a raw image of the terrain into a structured navigation map used by our path planner.
 
-##### Capture from Satellite
+###### Capture from Satellite
 A top-down image of the terrain is acquired, simulating satellite imagery of a lunar environment with sand and rocks.
 
-##### Binary Map Generation 
+###### Binary Map Generation 
 The image is converted into a binary map using basic thresholding. Obstacles appear in black, and free space appears in white—simplifying the environment for planning algorithms.
 <p align="center">
   <img width="976" height="243" alt="img_to_binary" src="https://github.com/user-attachments/assets/fdd7cf85-a59e-41ad-b5bc-7b429c33cfa4" />
 </p>
 
-##### Distance Map Calculation & Retraction Algorithm 
+###### Distance Map Calculation & Retraction Algorithm 
 Using the binary map, a distance transform is applied to compute a distance map. This map indicates how far each point is from the nearest obstacle. Brighter regions are safer and more navigable. Finally, we apply a retraction process on the distance map to generate a safe navigation zone, pulling the valid path away from obstacles while preserving reachability. This map serves as the input for our Dijkstra-based path planner.
 
 
