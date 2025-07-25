@@ -23,8 +23,9 @@ The second major challenge was to implement a robust navigation and control syst
 > The Koopas are stranded on the Moon, in the domain of Dry-Bowser. With Mario on holiday with Peach, it's up to **R.O.B.** to rescue them by navigating lunar terrain and interacting with targets (Turtles).
 
 <p align="center">
-  <img width="563" height="302" alt="map" src="https://github.com/user-attachments/assets/16d7b243-25c1-47a4-8a33-423a71570960" />
+  <img width="676" height="362" alt="map" src="https://github.com/user-attachments/assets/16d7b243-25c1-47a4-8a33-423a71570960" />
 </p>
+
 ---
 
 ## 🛠️ Hardware Architecture
