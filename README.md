@@ -28,7 +28,7 @@ The second major challenge was to implement a robust navigation and control syst
         <img width="616" height="333" alt="Map 1" src="https://github.com/user-attachments/assets/6b826c1c-890a-459f-9874-bbda8fe49c25" />
       </td>
       <td>
-        <img width="616" height="433" alt="Map 1" src="https://github.com/user-attachments/assets/d210ad52-6cd2-45a2-bf1e-96abaa3c81f6" />
+        <img width="563" height="302" alt="map_story" src="https://github.com/user-attachments/assets/a700bc44-b0fe-4e28-89cf-d167906bb126" />
       </td>
     </tr>
   </table>
@@ -55,7 +55,7 @@ The final robot is the following:
         <img width="616" height="333" alt="Map 1" src="https://github.com/user-attachments/assets/edbd2462-bbca-4bbe-8247-a54c02609f8b" />
       </td>
       <td>
-        <img width="616" height="333" alt="Map 1" src="https://github.com/user-attachments/assets/4910935e-200a-46f1-b29a-f84ce77ce710" />
+        <img width="616" height="433" alt="Map 1" src="https://github.com/user-attachments/assets/d210ad52-6cd2-45a2-bf1e-96abaa3c81f6" />
       </td>
     </tr>
   </table>
