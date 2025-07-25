@@ -101,7 +101,3 @@ We iteratively prototyped 4 robot models, each improving on mobility, power, and
 | Rasmus Börjesson Dahlstedt | Chalmers University of Technology           | 🇸🇪 Sweden |
 
 ---
-
-
-## 📁 Repository Structure (suggested)
-
