@@ -52,10 +52,11 @@ The final robot is the following:
   <table>
     <tr>
       <td>
-        ![robot1](https://github.com/user-attachments/assets/7f178943-2d10-4e9f-844a-69bd166d9e62)
+        <img width="616" height="333" alt="Map 1" src="https://github.com/user-attachments/assets/edbd2462-bbca-4bbe-8247-a54c02609f8b" />
       </td>
       <td>
-        ![robot2](https://github.com/user-attachments/assets/4910935e-200a-46f1-b29a-f84ce77ce710)
+        <img width="616" height="333" alt="Map 1" src="https://github.com/user-attachments/assets/4910935e-200a-46f1-b29a-f84ce77ce710" />
+        
       </td>
     </tr>
   </table>
