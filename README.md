@@ -5,18 +5,26 @@
 ---
 
 **Robot Navigation, Obstacle Avoidance and Interaction on the Moon**
-Autonomous robot for lunar navigation and object interaction, developed during TESP '25 at the Space Robotics Lab (Tohoku University). Features custom robot design, Dijkstra-based path planning, object detection with vision, and gripper control.
+
+This project aims to design, build, and program an autonomous mobile robot capable of navigating a static sand terrain—simulating lunar conditions—and interacting with objects in its environment. 
 
 > A Space Robotics Lab project under Prof. K. Yoshida, Tohoku University  
 ---
 
 ## 🚀 Project Overview
 
-This project aims to design, build, and program an autonomous mobile robot capable of navigating a static sand terrain—simulating lunar conditions—and interacting with objects in its environment.
+Our task was to design and build an autonomous mobile robot capable of navigating a simulated lunar environment, avoiding obstacles, and interacting with specific target objects placed on the terrain.
 
-### 👇 Real Task (Storyline)
-> The Koopas are stranded on the Moon, in the domain of Dry-Bowser. With Mario busy, it's up to **R.O.B.** to rescue them by navigating lunar terrain and interacting with targets (Turtles).
+This mission required overcoming several key challenges. First, we had to build the robot entirely from scratch, optimizing its mechanical design for a sandy, uneven surface that caused slippage and instability. This meant carefully selecting components, configuring the drivetrain, and iteratively refining the robot’s physical structure.
 
+The second major challenge was to implement a robust navigation and control system. This involved generating reliable paths through the terrain—despite limited sensor data and unpredictable motion—and finally enabling the robot to detect and interact with objects (turtles) using onboard vision and a custom-built gripper.
+
+### 👇 Real Task (Storyline) 😄
+> The Koopas are stranded on the Moon, in the domain of Dry-Bowser. With Mario on holiday with Peach, it's up to **R.O.B.** to rescue them by navigating lunar terrain and interacting with targets (Turtles).
+
+<p align="center">
+  <img width="563" height="302" alt="map" src="https://github.com/user-attachments/assets/16d7b243-25c1-47a4-8a33-423a71570960" />
+</p>
 ---
 
 ## 🛠️ Hardware Architecture
