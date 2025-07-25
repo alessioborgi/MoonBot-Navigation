@@ -102,11 +102,6 @@ We iteratively prototyped 4 robot models, each improving on mobility, power, and
 
 ---
 
-## 📸 Demo & Media
-
-> _Add images or video links here once available (YouTube, GIFs, etc.)_
-
----
 
 ## 📁 Repository Structure (suggested)
 
