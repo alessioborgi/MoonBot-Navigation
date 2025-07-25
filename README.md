@@ -6,7 +6,7 @@
 
 **Robot Navigation, Obstacle Avoidance and Interaction on the Moon**
 
-This project aims to design, build, and program an autonomous mobile robot capable of navigating a static sand terrain—simulating lunar conditions—and interacting with objects in its environment. 
+This project aims to design, build, and program an autonomous mobile robot capable of navigating a static sand terrain, simulating lunar conditions, and interacting with objects in its environment. 
 
 > A Space Robotics Lab project under Prof. K. Yoshida, Tohoku University  
 ---
