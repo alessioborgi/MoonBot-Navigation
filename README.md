@@ -1,10 +1,10 @@
-# 🤖 MoonBot Navigation — TESP '25 Robotics Project 🌕
+# 🤖 MoonBot Navigation 🌕
 
-**Obstacle Avoidance and Object Interaction on the Moon**
+**Copyright © 2025 Alessio Borgi, Andre Khoo, Kristjan Tarantelli, Rasmus Börjesson Dahlstedt**
+
+** Robot Navigation, Obstacle Avoidance and Interaction on the Moon**
 
 > A Space Robotics Lab project under Prof. K. Yoshida, Tohoku University  
-> Developed during TESP ’25 by Andre Khoo, Alessio Borgi, Kristjan Tarantelli, and Rasmus Börjesson Dahlstedt
-
 ---
 
 ## 🚀 Project Overview
