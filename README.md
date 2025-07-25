@@ -56,7 +56,6 @@ The final robot is the following:
       </td>
       <td>
         <img width="616" height="333" alt="Map 1" src="https://github.com/user-attachments/assets/4910935e-200a-46f1-b29a-f84ce77ce710" />
-        
       </td>
     </tr>
   </table>
