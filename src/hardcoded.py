@@ -19,23 +19,19 @@ class r_Motor:
         # speed in degrees/sec
         self.motor.run(self.invert * speed)
 
+    def run_time(self, speed, time, wait=False):
+        self.motor.run_time(self.invert * speed, time, wait=wait)
+
     def stop(self, stop_type=Stop.BRAKE):
         self.motor.stop(stop_type)
 
-    def run_angle(self, angle):
+    def run_angle(self, angle, wait=False):
         ''' This is the relative angle. '''
-        # self.motor.run_angle(10, angle, wait=True)
-        if DBG:
-            self.motor.run_angle(10, angle, wait=True)
-        else:
-            self.motor.run_angle(10, angle)
+        self.motor.run_angle(10, angle, wait=wait)
 
-    def run_target(self, target, speed=10):
+    def run_target(self, target, speed=10, wait=False): 
         ''' This is the absolute angle. '''
-        if DBG:
-            self.motor.run_target(speed, target, wait=True)
-        else:
-            self.motor.run_target(speed, target)
+        self.motor.run_target(speed, target, wait=wait)
 
 
 class Robot:
@@ -44,61 +40,79 @@ class Robot:
         self.r = wheel_radius
         self.l = length
         self.w = width
-        self.steer_angle_curr = 0
-        self.steer_max_angle = 70  # Maximum steering angle in degrees
+        # self.steer_angle_curr = 0
+        # self.steer_max_angle = 70  # Maximum steering angle in degrees
         # Create motors: fl, fr, bl, br; invert flags based on orientation
         self.leftMotor = r_Motor(Port.A, invert=False)
         self.rightMotor = r_Motor(Port.D, invert=False)
         self.steerMotor = r_Motor(Port.B, invert=False)
-        # self.gripperMotor = r_Motor(Port.C, invert=False)
-        self.angle = 0
+        self.gripperMotor = r_Motor(Port.C, invert=False)
 
+    def move_time(self, v, time, wait=False):
+
+        for m in [self.leftMotor, self.rightMotor]:
+            m.run_time(math.degrees(v / self.r), time, wait=wait)
 
     def move(self, v):
         for m in [self.leftMotor, self.rightMotor]:
             m.run(math.degrees(v / self.r))
 
-    def steer(self, angle):
-        clamped_angle = max(-self.steer_max_angle, min(self.steer_max_angle, angle))
-        self.steerMotor.run_target(clamped_angle)
+    def steer(self, angle, speed=20, wait=True):
+        self.steerMotor.run_target(angle, speed=speed, wait=wait)
 
-    def steer_left(self, angle):
-        self.steerMotor.run_target(angle)      
+    def steer_left(self, angle, speed=20, wait=True):
+        self.steerMotor.run_target(angle, speed=speed, wait=wait)      
 
-    def steer_right(self, angle):
-        self.steerMotor.run_target(-angle)
+    def steer_right(self, angle, speed=20):
+        self.steerMotor.run_target(-angle, speed=speed, wait=True)
 
-    def stop(self):
+    def stop(self, mode=Stop.BRAKE):
         for m in [self.leftMotor, self.rightMotor, self.steerMotor]:
-            m.stop()
+            m.stop(stop_type=mode)
 
-    # def open_gripper(self):
-    #     self.gripperMotor.run_target(-70, 30)
+    def lower_gripper(self):
+        self.gripperMotor.run_target(620, speed=200, wait=True)
 
-    # def close_gripper(self):
-    #     self.gripperMotor.run_target(0, 20)
+    def raise_gripper(self):
+        self.gripperMotor.run_target(0, speed=100, wait=True)
 
 
-if __name__ == "__main__":
+def grab_object(robot: Robot):
 
-    vel = 15
+    robot.lower_gripper()
+    robot.move(-10)
+    wait(3000)
+    robot.stop()
+    robot.raise_gripper()
+
+    robot.stop()        # Stop the robot
+
+def main():
+
+    VEL = -15
 
     # Test Path
     robot = Robot()
-    robot.steer_left(50)
-    robot.move(vel)
+    robot.steer_left(40, speed=20, wait=False)
+    robot.move(VEL)
+    wait(6000)
     robot.steer(0)
+    wait(500)
+    # sali il cratere
+    robot.move(-50)
+    wait(2500)
+    robot.steer_left(40, speed=30, wait=False)
+    robot.move(VEL)
+    wait(3000)
+    robot.steer(0, speed=30, wait=True)
     wait(1000)
-    robot.move(vel)
-    wait(3000)
-    robot.move(vel)
-    robot.steer_left(15)
-    robot.steer(0)
-    wait(3000)
     robot.stop()        # Stop the robot
 
-    # robot.open_gripper()
-    # wait(1000)
-    # robot.close_gripper()
+    grab_object(robot)
 
     robot.stop()        # Stop the robot
+
+if __name__ == "__main__":
+
+    main()
+    # test()

@@ -32,7 +32,7 @@ except IOError:
 
 
 # --- Camera Initialization ---
-cap = cv2.VideoCapture(2)
+cap = cv2.VideoCapture(1)
 
 if not cap.isOpened():
     print("Error: Could not open camera.")
@@ -111,7 +111,7 @@ while True:
     for item in result['predictions']:
         if item['class'] == 'Black Turtle':
             print("-------------------------------------------------------------------------------------------------------------")
-            print(f'Black Turtle found at camera coordinates [{item['x'], item['y']}, with size [{item['width'], item['height']}]')
+            print(f"Black Turtle found at camera coordinates [{item['x'], item['y']}], with size [{item['width'], item['height']}]")
     
 """
 # --- Release resources ---
