@@ -19,6 +19,10 @@ This mission required overcoming several key challenges. First, we had to build 
 
 The second major challenge was to implement a robust navigation and control system. This involved generating reliable paths through the terrain—despite limited sensor data and unpredictable motion—and finally enabling the robot to detect and interact with objects (turtles) using onboard vision and a custom-built gripper.
 
+<p align="center">
+  <img width="972" height="376" alt="architecture" src="https://github.com/user-attachments/assets/4f9f935e-7525-47d4-a69c-73f2f1fa633d" />
+</p>
+
 ### 👇 Real Task (Storyline) 😄
 > The Koopas are stranded on the Moon, in the domain of Dry-Bowser. With Mario on holiday with Peach, it's up to **R.O.B.** to rescue them by navigating lunar terrain and interacting with targets (Turtles).
 <p align="center">
