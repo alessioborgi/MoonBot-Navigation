@@ -46,6 +46,21 @@ We iteratively prototyped 4 robot models, each improving on mobility, power, and
 - **Mikazuki**: Compact turning, unstable front
 - **Tenshiko (Final)**: Loader-inspired, 1 motor linear gripper
 
+The final robot is the following: 
+
+<p align="center">
+  <table>
+    <tr>
+      <td>
+        ![robot1](https://github.com/user-attachments/assets/7f178943-2d10-4e9f-844a-69bd166d9e62)
+      </td>
+      <td>
+        ![robot2](https://github.com/user-attachments/assets/4910935e-200a-46f1-b29a-f84ce77ce710)
+      </td>
+    </tr>
+  </table>
+</p>
+
 ### 🧠 Electronics Stack
 - **Raspberry Pi** — Sensor & ML processing
 - **EV3 Brick** — Motor control
