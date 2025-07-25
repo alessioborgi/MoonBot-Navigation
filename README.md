@@ -2,7 +2,10 @@
 
 **Copyright © 2025 Alessio Borgi, Andre Khoo, Kristjan Tarantelli, Rasmus Börjesson Dahlstedt**
 
+---
+
 **Robot Navigation, Obstacle Avoidance and Interaction on the Moon**
+Autonomous robot for lunar navigation and object interaction, developed during TESP '25 at the Space Robotics Lab (Tohoku University). Features custom robot design, Dijkstra-based path planning, object detection with vision, and gripper control.
 
 > A Space Robotics Lab project under Prof. K. Yoshida, Tohoku University  
 ---
