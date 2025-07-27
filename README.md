@@ -117,7 +117,7 @@ Using the binary map, a distance transform is applied to compute a distance map.
 - **Issues**: Blurry images → failed detections
 
  <div style="text-align: center">
-  <a href="[https://www.youtube.com/watch?v=jyYGPEJGU4A](https://youtu.be/YZeRK4v5kP4)">
+  <a href="https://www.youtube.com/watch?v=YZeRK4v5kP4">
     <p style="font-size: 16px; margin-top: 5px;">Click the Photo to See the Video!</p>
     <img src="img/readme_imgs/object_detection.png" alt="Screenshot" width="1200"/>
   </a>
