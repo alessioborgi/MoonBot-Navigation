@@ -94,17 +94,17 @@ The image is converted into a binary map using basic thresholding. Obstacles app
 
 ###### Distance Map Calculation & Retraction Algorithm 
 Using the binary map, a distance transform is applied to compute a distance map. This map indicates how far each point is from the nearest obstacle. Brighter regions are safer and more navigable. Finally, we apply a retraction process on the distance map to generate a safe navigation zone, pulling the valid path away from obstacles while preserving reachability. This map serves as the input for our Dijkstra-based path planner.
-
-
-
 <p align="center">
   <img width="681" height="353" alt="retraction_map" src="https://github.com/user-attachments/assets/165df5ac-2760-4bbe-9081-b85cfa2ab202" />
 </p>
 
-### ⚠️ Issues Encountered
-- Communication delay between EV3 and Raspberry Pi
-- ROS not viable in real-time due to latency
-- Resort to **precomputed paths** and **camera-only close-range navigation**
+##### SLAM On the MOON
+ <div style="text-align: center">
+  <a href="https://www.youtube.com/watch?v=3jToJo4PlYQ">
+    <p style="font-size: 16px; margin-top: 5px;">Click the Photo to See the Video!</p>
+    <img src="img/readme_imgs/path_planning.png" alt="Screenshot" width="1200"/>
+  </a>
+</div>
 
 ---
 
@@ -116,20 +116,23 @@ Using the binary map, a distance transform is applied to compute a distance map.
 - **Model**: Simple object detection used for turtle identification and aimpoint guidance
 - **Issues**: Blurry images → failed detections
 
-<p align="center">
-  [ROS_Simulation.webm](https://github.com/user-attachments/assets/3459c0c8-05af-4f6f-ac37-7071bb883249)
-</p>
+ <div style="text-align: center">
+  <a href="[https://www.youtube.com/watch?v=jyYGPEJGU4A](https://youtu.be/YZeRK4v5kP4)">
+    <p style="font-size: 16px; margin-top: 5px;">Click the Photo to See the Video!</p>
+    <img src="img/readme_imgs/object_detection.png" alt="Screenshot" width="1200"/>
+  </a>
+</div>
 ---
 
 ## 🎮 Navigation & Object Interaction
 
 ### Short-Range Tracking
-- Use visual servoing to keep turtle centered in view
-- Simple heuristic-based steering
+- Use visual servoing to keep turtle centered in view.
+- Simple heuristic-based steering.
 
 ### Gripper Mechanism
-- Loader-style linear gripper (must stay off ground while navigating)
-- Difficulty aligning due to nondeterministic slip/glide on sand
+- Loader-style linear gripper (must stay off ground while navigating).
+- Difficulty aligning due to nondeterministic slip/glide on sand.
 
 ---
 
