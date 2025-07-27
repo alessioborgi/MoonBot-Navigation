@@ -116,6 +116,9 @@ Using the binary map, a distance transform is applied to compute a distance map.
 - **Model**: Simple object detection used for turtle identification and aimpoint guidance
 - **Issues**: Blurry images → failed detections
 
+<p align="center">
+  [ROS_Simulation.webm](https://github.com/user-attachments/assets/3459c0c8-05af-4f6f-ac37-7071bb883249)
+</p>
 ---
 
 ## 🎮 Navigation & Object Interaction
