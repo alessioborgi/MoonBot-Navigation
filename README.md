@@ -3,7 +3,9 @@
 **Copyright © 2025 Alessio Borgi, Andre Khoo, Kristjan Tarantelli, Rasmus Börjesson Dahlstedt**
 
 ---
+**Certificate of Excellence: 1st Place in the TESP 2025 Competition**
 
+---
 **Robot Navigation, Obstacle Avoidance and Interaction on the Moon**
 
 This project aims to design, build, and program an autonomous mobile robot capable of navigating a static sand terrain, simulating lunar conditions, and interacting with objects in its environment. 
