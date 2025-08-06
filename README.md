@@ -149,3 +149,8 @@ Using the binary map, a distance transform is applied to compute a distance map.
 | Rasmus Börjesson Dahlstedt | Chalmers University of Technology           | 🇸🇪 Sweden |
 
 ---
+
+### Other Similar Repositories
+If you like this world, please, have a look at these other projects I have developed: 
+- **AMR_CleaningRobot**: Simulation of a Cleaning Robot with the capability of performing SLAM of the environment the robot is navigating, Planning Trajectories to calculate optimal paths considering static and dynamic obstacles, and Dynamic Obstacle Avoidance to detect and navigate around obstacles.
+     - Site: https://github.com/alessioborgi/AMR_CleaningRobot
