@@ -138,26 +138,6 @@ Using the binary map, a distance transform is applied to compute a distance map.
 
 ---
 
-## 📊 Results
-
-- Successfully navigated via precomputed path
-- Detected and interacted with turtles in ~60–70% of trials
-- Some failures due to visual errors or drift during final approach
-
----
-
-## 🔭 Future Work
-
-### Hardware Improvements
-- Eliminate EV3, use RPi-only architecture
-- Use high-precision motors
-- Add distance sensors (e.g., ultrasonic or LIDAR)
-
-### Software Improvements
-- Speed up ML model inference
-- Direct integration of ROS2 with motor control
-
----
 
 ## 👥 Team
 
